@@ -1,21 +1,72 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================
+   DESIGN SYSTEM — Premium Dark Theme
+   ============================================ */
+
+:root {
+  /* Core palette */
+  --color-bg-primary: #050816;
+  --color-bg-secondary: #0a0f24;
+  --color-bg-tertiary: #151030;
+  --color-bg-card: #100d25;
+
+  /* Accent gradients */
+  --color-accent-start: #915EFF;
+  --color-accent-end: #6366f1;
+  --color-accent-blue: #3b82f6;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-pink: #ec4899;
+
+  /* Text */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #aaa6c3;
+  --color-text-muted: #64748b;
+
+  /* Glass */
+  --glass-bg: rgba(15, 12, 41, 0.7);
+  --glass-border: rgba(145, 94, 255, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", "Space Grotesk", system-ui, -apple-system, sans-serif;
   scroll-behavior: smooth;
   color-scheme: dark;
-
-
 }
 
+/* Remove Poppins import — fonts are now loaded in HTML with display=swap */
 
+/* ============================================
+   SCROLLBAR CUSTOMIZATION
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent-start), var(--color-accent-end));
+  border-radius: 100px;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
 
 .hash-span {
   margin-top: -100px;
@@ -23,102 +74,191 @@
   display: block;
 }
 
+/* ============================================
+   GRADIENT UTILITIES
+   ============================================ */
+
 .black-gradient {
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
 }
 
 .violet-gradient {
-  background: #804dee;
-  background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
-  background: -webkit-linear-gradient(
-    -90deg,
-    #804dee 0%,
-    rgba(60, 51, 80, 0) 100%
-  );
+  background: linear-gradient(-90deg, #915EFF 0%, rgba(60, 51, 80, 0) 100%);
 }
 
 .green-pink-gradient {
-  background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
-  background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
 }
 
+.purple-blue-gradient {
+  background: linear-gradient(135deg, #915EFF 0%, #6366f1 50%, #3b82f6 100%);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, var(--color-accent-start), var(--color-accent-end), var(--color-accent-blue));
+}
+
+/* ============================================
+   TEXT GRADIENT UTILITIES
+   ============================================ */
+
 .orange-text-gradient {
-  background: #f12711; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #f12711,
-    #f5af19
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #f12711, #f5af19);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .green-text-gradient {
-  background: #11998e; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #11998e,
-    #38ef7d
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #11998e, #38ef7d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .blue-text-gradient {
-  /* background: -webkit-linear-gradient(#eee, #333); */
-  background: #56ccf2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #2f80ed,
-    #56ccf2
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #2f80ed, #56ccf2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .pink-text-gradient {
-  background: #ec008c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #ec008c,
-    #fc6767
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top, #ec008c, #fc6767);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* canvas- styles */
+.white-text-gradient {
+  background: linear-gradient(to top, #c0c0c0, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.purple-text-gradient {
+  background: linear-gradient(135deg, #915EFF, #6366f1, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: rgba(15, 12, 41, 0.5);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(145, 94, 255, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  border-color: rgba(145, 94, 255, 0.3);
+  box-shadow:
+    0 8px 40px rgba(145, 94, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-sm {
+  box-shadow: 0 0 15px rgba(145, 94, 255, 0.2);
+}
+
+.glow-md {
+  box-shadow: 0 0 30px rgba(145, 94, 255, 0.3);
+}
+
+.glow-lg {
+  box-shadow: 0 0 60px rgba(145, 94, 255, 0.4);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(145, 94, 255, 0.5);
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-primary {
+  background: linear-gradient(135deg, #915EFF, #6366f1);
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #a78bfa, #818cf8);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(145, 94, 255, 0.4);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #915EFF;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  border: 2px solid rgba(145, 94, 255, 0.5);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-outline:hover {
+  background: rgba(145, 94, 255, 0.1);
+  border-color: #915EFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(145, 94, 255, 0.2);
+}
+
+/* ============================================
+   CANVAS LOADER
+   ============================================ */
+
 .canvas-loader {
   font-size: 10px;
   width: 1em;
@@ -131,8 +271,7 @@
 }
 
 @keyframes mulShdSpin {
-  0%,
-  100% {
+  0%, 100% {
     box-shadow: 0em -2.6em 0em 0em #ffffff,
       1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2),
       2.5em 0em 0 0em rgba(255, 255, 255, 0.2),
@@ -204,5 +343,77 @@
       0em 2.5em 0 0em rgba(255, 255, 255, 0.2),
       -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+/* ============================================
+   AMBIENT BACKGROUND EFFECTS
+   ============================================ */
+
+.ambient-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ambient-glow::before,
+.ambient-glow::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+}
+
+.ambient-glow::before {
+  width: 600px;
+  height: 600px;
+  background: #915EFF;
+  top: -200px;
+  right: -200px;
+}
+
+.ambient-glow::after {
+  width: 500px;
+  height: 500px;
+  background: #3b82f6;
+  bottom: -150px;
+  left: -150px;
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   ============================================ */
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(145, 94, 255, 0.3), transparent);
+  margin: 2rem 0;
+}
+
+/* ============================================
+   RESPONSIVE REFINEMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+  .glass-card {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY — Reduced Motion
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, memo, useCallback } from "react";
 import { Tilt } from "react-tilt";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -8,10 +8,9 @@ import { github } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 
-// Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectCard = ({
+const ProjectCard = memo(({
   index,
   name,
   description,
@@ -23,98 +22,106 @@ const ProjectCard = ({
 
   useEffect(() => {
     const el = cardRef.current;
-
-    // ScrollTrigger for animating project cards with stagger
     gsap.fromTo(
       el,
-      {
-        opacity: 0,
-        y: 100, // Start off-screen
-      },
+      { opacity: 0, y: 80 },
       {
         opacity: 1,
         y: 0,
         scrollTrigger: {
           trigger: el,
-          start: "top bottom",  // Trigger when the top of the element hits the bottom of the viewport
-          end: "top center",    // End when the top reaches the center of the viewport
-          scrub: true,          // Smoothly sync scroll and animation
-          markers: false,       // Set to `true` to see debug markers
+          start: "top bottom",
+          end: "top center",
+          scrub: true,
+          markers: false,
         },
       }
     );
   }, []);
 
+  const handleSourceClick = useCallback(() => {
+    window.open(source_code_link, "_blank", "noopener,noreferrer");
+  }, [source_code_link]);
+
   return (
     <div ref={cardRef}>
       <Tilt
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
+        options={{ max: 15, scale: 1.02, speed: 400 }}
+        className="glass-card p-5 rounded-2xl sm:w-[360px] w-full group"
       >
-        <div className="relative w-full h-[230px]">
+        {/* Project Image */}
+        <div className="relative w-full h-[230px] overflow-hidden rounded-2xl">
           <img
             src={image}
-            alt="project_image"
-            className="w-full h-full object-cover object-left rounded-2xl"
+            alt={`Screenshot of ${name} project`}
+            className="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
           />
 
+          {/* Overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* GitHub link */}
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer"
+            <button
+              onClick={handleSourceClick}
+              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform duration-200"
+              aria-label={`View ${name} source code on GitHub`}
             >
               <img
                 src={github}
-                alt="source code"
+                alt=""
                 className="w-1/2 h-1/2 object-contain"
+                width={20}
+                height={20}
               />
-            </div>
+            </button>
           </div>
         </div>
 
+        {/* Project Info */}
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[24px]">{name}</h3>
-          <p className="mt-2 text-secondary text-[14px]">{description}</p>
+          <h3 className="text-white font-bold text-[22px] tracking-tight font-display">
+            {name}
+          </h3>
+          <p className="mt-2 text-secondary text-[14px] leading-[22px]">
+            {description}
+          </p>
         </div>
 
+        {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <p
+            <span
               key={`${name}-${tag.name}`}
-              className={`text-[14px] ${tag.color}`}
+              className={`text-[13px] font-medium ${tag.color}`}
             >
               #{tag.name}
-            </p>
+            </span>
           ))}
         </div>
       </Tilt>
     </div>
   );
-};
+});
+
+ProjectCard.displayName = "ProjectCard";
 
 const Works = () => {
   useEffect(() => {
-    // Stagger effect for project cards
     gsap.fromTo(
-      ".project-card", // Select all project cards
-      {
-        opacity: 0,
-        y: 100,
-      },
+      ".project-card",
+      { opacity: 0, y: 80 },
       {
         opacity: 1,
         y: 0,
-        stagger: 0.1, // Stagger delay of 0.3 seconds between each card
+        stagger: 0.1,
         scrollTrigger: {
           trigger: ".works-container",
-          start: "top bottom",  // Trigger when the top of the container reaches the bottom
+          start: "top bottom",
           end: "top center",
           scrub: true,
-          markers: false, // Set to true to see debug markers
+          markers: false,
         },
       }
     );
@@ -124,16 +131,25 @@ const Works = () => {
     <>
       <div>
         <p className={`${styles.sectionSubText}`}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
+        <h2 className={`${styles.sectionHeadText} font-display`}>
+          Projects<span className="text-accent">.</span>
+        </h2>
       </div>
 
       <div className="w-full flex">
         <p className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
-          Following projects showcase my skills and experience through real-world examples of my work. Each project is briefly described with links to code repositories and live demos. It reflects my ability to solve complex problems, work with different technologies, and manage projects effectively.
+          Following projects showcase my skills and experience through
+          real-world examples of my work. Each project is briefly described with
+          links to code repositories and live demos. It reflects my ability to
+          solve complex problems, work with different technologies, and manage
+          projects effectively.
         </p>
       </div>
 
-      <div className="works-container mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-5">
+      <div
+        id="works"
+        className="works-container mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8"
+      >
         {projects.map((project, index) => (
           <div key={`project-${index}`} className="project-card">
             <ProjectCard index={index} {...project} />
