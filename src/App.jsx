@@ -31,7 +31,7 @@ const App = () => {
         <div className="ambient-glow" aria-hidden="true" />
 
         {/* Hero Section — loaded eagerly for fast FCP */}
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+        <div className="bg-gradient-to-b from-white via-slate-50 to-slate-100">
           <Navbar />
           <Hero />
         </div>

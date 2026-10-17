@@ -9,20 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TechIcon = memo(({ name, icon }) => (
   <div
-    className="tech-icon group relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center rounded-2xl glass-card cursor-default"
+    className="tech-icon group relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all duration-200 cursor-default"
     title={name}
   >
     <img
       src={icon}
       alt={`${name} technology icon`}
-      className="w-14 h-14 sm:w-16 sm:h-16 object-contain transition-transform duration-300 group-hover:scale-110"
-      width={64}
-      height={64}
+      className="w-12 h-12 sm:w-14 sm:h-14 object-contain transition-transform duration-300 group-hover:scale-105"
+      width={56}
+      height={56}
       loading="lazy"
     />
 
     {/* Tooltip */}
-    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs text-secondary font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+    <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs text-slate-600 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap bg-white px-2 py-0.5 rounded shadow-sm border border-slate-100">
       {name}
     </span>
   </div>

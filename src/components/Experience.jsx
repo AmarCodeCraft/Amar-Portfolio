@@ -16,44 +16,43 @@ const ExperienceCard = memo(({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "rgba(15, 12, 41, 0.7)",
-        backdropFilter: "blur(12px)",
-        color: "#fff",
-        border: "1px solid rgba(145, 94, 255, 0.1)",
+        background: "#FFFFFF",
+        color: "#1E293B",
+        border: "1px solid #E2E8F0",
         borderRadius: "16px",
-        boxShadow: "0 4px 24px rgba(0, 0, 0, 0.3)",
+        boxShadow: "0 1px 3px rgba(0, 0, 0, 0.05)",
       }}
-      contentArrowStyle={{ borderRight: "7px solid rgba(145, 94, 255, 0.3)" }}
+      contentArrowStyle={{ borderRight: "7px solid #FFFFFF" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ background: "#FFFFFF", border: "2px solid #E2E8F0" }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
           <img
             src={experience.icon}
             alt={`${experience.company_name} logo`}
-            className="w-[90%] h-[90%] object-contain"
+            className="w-[70%] h-[70%] object-contain"
             loading="lazy"
           />
         </div>
       }
     >
       <div>
-        <h3 className="text-white text-[22px] font-bold tracking-tight font-display">
+        <h3 className="text-slate-900 text-[20px] font-bold tracking-tight font-display">
           {experience.title}
         </h3>
         <p
-          className="text-accent text-[15px] font-semibold"
+          className="text-indigo-600 text-[15px] font-semibold"
           style={{ margin: 0 }}
         >
           {experience.company_name}
         </p>
       </div>
 
-      <ul className="mt-5 list-disc ml-5 space-y-2">
+      <ul className="mt-4 list-disc ml-5 space-y-2">
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className="text-white-100 text-[14px] pl-1 tracking-wider leading-relaxed"
+            className="text-slate-600 text-[14px] pl-1 leading-relaxed"
           >
             {point}
           </li>

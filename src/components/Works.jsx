@@ -46,26 +46,23 @@ const ProjectCard = memo(({
   return (
     <div ref={cardRef}>
       <Tilt
-        options={{ max: 15, scale: 1.02, speed: 400 }}
-        className="glass-card p-5 rounded-2xl sm:w-[360px] w-full group"
+        options={{ max: 10, scale: 1.01, speed: 400 }}
+        className="bg-white border border-slate-200/80 p-5 rounded-2xl sm:w-[360px] w-full shadow-sm hover:shadow-md transition-shadow duration-300 group"
       >
         {/* Project Image */}
-        <div className="relative w-full h-[230px] overflow-hidden rounded-2xl">
+        <div className="relative w-full h-[230px] overflow-hidden rounded-xl bg-slate-100">
           <img
             src={image}
             alt={`Screenshot of ${name} project`}
-            className="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover object-left transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-
-          {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* GitHub link */}
           <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
             <button
               onClick={handleSourceClick}
-              className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition-transform duration-200"
+              className="bg-white/90 backdrop-blur-sm border border-slate-200 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-200 shadow-sm"
               aria-label={`View ${name} source code on GitHub`}
             >
               <img
@@ -81,10 +78,10 @@ const ProjectCard = memo(({
 
         {/* Project Info */}
         <div className="mt-5">
-          <h3 className="text-white font-bold text-[22px] tracking-tight font-display">
+          <h3 className="text-slate-900 font-bold text-[20px] tracking-tight font-display">
             {name}
           </h3>
-          <p className="mt-2 text-secondary text-[14px] leading-[22px]">
+          <p className="mt-2 text-slate-600 text-[14px] leading-[22px]">
             {description}
           </p>
         </div>
@@ -94,7 +91,7 @@ const ProjectCard = memo(({
           {tags.map((tag) => (
             <span
               key={`${name}-${tag.name}`}
-              className={`text-[13px] font-medium ${tag.color}`}
+              className="text-[12px] font-medium bg-slate-100 text-slate-700 px-2 py-1 rounded-md"
             >
               #{tag.name}
             </span>

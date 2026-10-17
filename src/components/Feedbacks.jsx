@@ -33,30 +33,30 @@ const FeedbackCard = memo(({ index, testimonial, name, designation, company, ima
   return (
     <div
       ref={cardRef}
-      className="glass-card p-8 rounded-3xl xs:w-[320px] w-full"
+      className="bg-white border border-slate-200/80 p-8 rounded-2xl xs:w-[320px] w-full shadow-sm hover:shadow-md transition-shadow duration-300"
     >
       {/* Quote mark */}
-      <p className="purple-text-gradient font-black text-[48px] leading-none select-none">"</p>
+      <p className="text-indigo-600 font-serif font-black text-[40px] leading-none select-none">“</p>
 
       <div className="mt-1">
-        <p className="text-white tracking-wider text-[16px] leading-relaxed">
+        <p className="text-slate-700 tracking-normal text-[15px] leading-relaxed">
           {testimonial}
         </p>
 
-        <div className="mt-7 flex justify-between items-center gap-1">
+        <div className="mt-6 flex justify-between items-center gap-1">
           <div className="flex-1 flex flex-col">
-            <p className="text-white font-medium text-[15px]">
-              <span className="purple-text-gradient font-bold">@</span> {name}
+            <p className="text-slate-900 font-medium text-[15px]">
+              {name}
             </p>
-            <p className="mt-1 text-secondary text-[12px]">
-              {designation} of {company}
+            <p className="mt-0.5 text-slate-500 text-[12px]">
+              {designation} at {company}
             </p>
           </div>
 
           <img
             src={image}
             alt={`Photo of ${name}`}
-            className="w-10 h-10 rounded-full object-cover ring-2 ring-accent/30"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-100"
             width={40}
             height={40}
             loading="lazy"
@@ -71,9 +71,9 @@ FeedbackCard.displayName = "FeedbackCard";
 
 const Feedbacks = () => {
   return (
-    <div className="mt-12 bg-black-100/40 rounded-[20px] glass">
+    <div className="mt-12 bg-slate-100/60 border border-slate-200/80 rounded-2xl">
       <div
-        className={`bg-tertiary/70 rounded-2xl ${styles.padding} min-h-[300px]`}
+        className={`bg-white rounded-t-2xl border-b border-slate-200/80 ${styles.padding} min-h-[260px]`}
       >
         <div>
           <p className={styles.sectionSubText}>What others say</p>
@@ -83,7 +83,7 @@ const Feedbacks = () => {
         </div>
       </div>
       <div
-        className={`-mt-20 pb-14 ${styles.paddingX} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center`}
+        className={`-mt-16 pb-14 ${styles.paddingX} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center`}
       >
         {testimonials.map((testimonial, index) => (
           <FeedbackCard

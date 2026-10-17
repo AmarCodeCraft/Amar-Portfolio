@@ -19,13 +19,13 @@ const Hero = memo(() => {
       className="relative w-full h-screen mx-auto"
       aria-label="Hero section"
     >
-      {/* Decorative gradient orbs — behind everything */}
+      {/* Decorative subtle ambient lights */}
       <div
-        className="absolute top-20 right-10 w-72 h-72 bg-accent/20 rounded-full blur-[120px] pointer-events-none z-0"
+        className="absolute top-20 right-10 w-96 h-96 bg-indigo-50/50 rounded-full blur-[140px] pointer-events-none z-0"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-40 left-10 w-56 h-56 bg-accent-blue/15 rounded-full blur-[100px] pointer-events-none z-0"
+        className="absolute bottom-40 left-10 w-80 h-80 bg-blue-50/50 rounded-full blur-[120px] pointer-events-none z-0"
         aria-hidden="true"
       />
 
@@ -38,31 +38,29 @@ const Hero = memo(() => {
       >
         {/* Accent line */}
         <div className="flex flex-col justify-center items-center mt-28 md:mt-5">
-          <div className="w-5 h-5 rounded-full bg-accent glow-sm" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
+          <div className="w-4 h-4 rounded-full bg-indigo-600" />
+          <div className="w-0.5 sm:h-80 h-40 bg-gradient-to-b from-indigo-600 to-transparent" />
         </div>
 
         {/* Hero content */}
         <div className="mt-28 md:mt-5 max-w-2xl pointer-events-auto">
           <motion.h1
-            className={`${styles.heroHeadText} text-white font-display`}
+            className={`${styles.heroHeadText} font-display`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             Hi, I'm{" "}
-            <span className="purple-text-gradient text-glow">Amar</span>
+            <span className="text-indigo-600">Amar</span>
           </motion.h1>
 
           <motion.p
-            className={`${styles.heroSubText} mt-3 text-white-100/80`}
+            className={`${styles.heroSubText} mt-4 text-slate-600`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
-            I craft modern, high-performance{" "}
-            <br className="sm:block hidden" />
-            web experiences that users love.
+            I craft clean, high-performance web experiences with thoughtful design and solid architecture.
           </motion.p>
 
           {/* CTA Buttons */}

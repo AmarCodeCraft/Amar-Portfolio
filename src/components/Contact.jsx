@@ -63,7 +63,7 @@ const Contact = memo(() => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="flex-[0.75] glass p-8 rounded-2xl"
+        className="flex-[0.75] bg-white border border-slate-200/80 p-8 rounded-2xl shadow-sm"
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={`${styles.sectionHeadText} font-display`}>
@@ -73,10 +73,10 @@ const Contact = memo(() => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-10 flex flex-col gap-7"
+          className="mt-10 flex flex-col gap-6"
         >
           <label className="flex flex-col" htmlFor="contact-name">
-            <span className="text-white font-medium mb-3 text-sm uppercase tracking-wider">
+            <span className="text-slate-700 font-medium mb-2 text-sm tracking-wide">
               Your Name
             </span>
             <input
@@ -87,12 +87,12 @@ const Contact = memo(() => {
               onChange={handleChange}
               placeholder="What's your name?"
               required
-              className="bg-tertiary/70 py-4 px-6 placeholder:text-secondary/60 text-white rounded-xl outline-none border border-transparent focus:border-accent/50 font-medium transition-colors duration-200"
+              className="bg-slate-50 py-3 px-4 placeholder:text-slate-400 text-slate-800 rounded-lg outline-none border border-slate-200 focus:border-indigo-500 font-medium transition-colors duration-200"
             />
           </label>
 
           <label className="flex flex-col" htmlFor="contact-email">
-            <span className="text-white font-medium mb-3 text-sm uppercase tracking-wider">
+            <span className="text-slate-700 font-medium mb-2 text-sm tracking-wide">
               Your Email
             </span>
             <input
@@ -103,23 +103,23 @@ const Contact = memo(() => {
               onChange={handleChange}
               placeholder="What's your email?"
               required
-              className="bg-tertiary/70 py-4 px-6 placeholder:text-secondary/60 text-white rounded-xl outline-none border border-transparent focus:border-accent/50 font-medium transition-colors duration-200"
+              className="bg-slate-50 py-3 px-4 placeholder:text-slate-400 text-slate-800 rounded-lg outline-none border border-slate-200 focus:border-indigo-500 font-medium transition-colors duration-200"
             />
           </label>
 
           <label className="flex flex-col" htmlFor="contact-message">
-            <span className="text-white font-medium mb-3 text-sm uppercase tracking-wider">
+            <span className="text-slate-700 font-medium mb-2 text-sm tracking-wide">
               Your Message
             </span>
             <textarea
               id="contact-message"
-              rows={6}
+              rows={5}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="What would you like to say?"
               required
-              className="bg-tertiary/70 py-4 px-6 placeholder:text-secondary/60 text-white rounded-xl outline-none border border-transparent focus:border-accent/50 font-medium transition-colors duration-200 resize-none"
+              className="bg-slate-50 py-3 px-4 placeholder:text-slate-400 text-slate-800 rounded-lg outline-none border border-slate-200 focus:border-indigo-500 font-medium transition-colors duration-200 resize-none"
             />
           </label>
 

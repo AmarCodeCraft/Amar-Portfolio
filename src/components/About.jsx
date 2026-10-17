@@ -39,28 +39,22 @@ const ServiceCard = memo(({ index, title, icon }) => {
   return (
     <Tilt
       className="xs:w-[250px] w-full"
-      options={{ max: 25, scale: 1.02, speed: 400 }}
+      options={{ max: 15, scale: 1.01, speed: 400 }}
     >
       <div
         ref={cardRef}
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card group"
+        className="w-full bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group overflow-hidden"
       >
-        <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col relative overflow-hidden">
-          {/* Subtle hover glow */}
-          <div
-            className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            aria-hidden="true"
-          />
-
+        <div className="py-8 px-6 min-h-[260px] flex justify-evenly items-center flex-col relative">
           <img
             src={icon}
             alt={`${title} service icon`}
-            className="w-16 h-16 object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"
+            className="w-16 h-16 object-contain relative z-10 transition-transform duration-300 group-hover:scale-105"
             width={64}
             height={64}
             loading="lazy"
           />
-          <h3 className="text-white text-[20px] font-bold text-center relative z-10">
+          <h3 className="text-slate-800 text-[18px] font-bold text-center relative z-10">
             {title}
           </h3>
         </div>
