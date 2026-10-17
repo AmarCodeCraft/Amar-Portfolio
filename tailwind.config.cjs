@@ -5,23 +5,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
+        primary: "#0B0F19",
+        secondary: "#94A3B8",
+        tertiary: "#111827",
+        "black-100": "#131B2E",
+        "black-200": "#1E293B",
+        "white-100": "#F8FAFC",
         accent: {
-          DEFAULT: "#915EFF",
-          light: "#a78bfa",
-          dark: "#6d28d9",
-          blue: "#3b82f6",
+          DEFAULT: "#6366F1",
+          light: "#818CF8",
+          dark: "#4F46E5",
+          blue: "#38BDF8",
         },
       },
       boxShadow: {
-        card: "0px 35px 120px -15px #211e35",
-        "card-hover": "0px 20px 60px -10px rgba(145, 94, 255, 0.25)",
-        glass: "0 8px 32px rgba(0, 0, 0, 0.37)",
+        card: "0px 10px 30px -10px rgba(0, 0, 0, 0.5)",
+        "card-hover": "0px 15px 35px -10px rgba(99, 102, 241, 0.3)",
+        glass: "0 10px 30px rgba(0, 0, 0, 0.35)",
       },
       screens: {
         xs: "450px",

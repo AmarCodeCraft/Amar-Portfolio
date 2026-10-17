@@ -33,19 +33,19 @@ const FeedbackCard = memo(({ index, testimonial, name, designation, company, ima
   return (
     <div
       ref={cardRef}
-      className="bg-white border border-slate-200/80 p-8 rounded-2xl xs:w-[320px] w-full shadow-sm hover:shadow-md transition-shadow duration-300"
+      className="glass-card p-8 rounded-2xl xs:w-[320px] w-full"
     >
       {/* Quote mark */}
-      <p className="text-indigo-600 font-serif font-black text-[40px] leading-none select-none">“</p>
+      <p className="text-indigo-400 font-serif font-black text-[40px] leading-none select-none">“</p>
 
       <div className="mt-1">
-        <p className="text-slate-700 tracking-normal text-[15px] leading-relaxed">
+        <p className="text-slate-300 tracking-normal text-[15px] leading-relaxed">
           {testimonial}
         </p>
 
         <div className="mt-6 flex justify-between items-center gap-1">
           <div className="flex-1 flex flex-col">
-            <p className="text-slate-900 font-medium text-[15px]">
+            <p className="text-white font-medium text-[15px]">
               {name}
             </p>
             <p className="mt-0.5 text-slate-500 text-[12px]">
@@ -56,7 +56,7 @@ const FeedbackCard = memo(({ index, testimonial, name, designation, company, ima
           <img
             src={image}
             alt={`Photo of ${name}`}
-            className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-100"
+            className="w-10 h-10 rounded-full object-cover ring-2 ring-slate-800"
             width={40}
             height={40}
             loading="lazy"
@@ -71,14 +71,14 @@ FeedbackCard.displayName = "FeedbackCard";
 
 const Feedbacks = () => {
   return (
-    <div className="mt-12 bg-slate-100/60 border border-slate-200/80 rounded-2xl">
+    <div className="mt-12 bg-slate-900/50 border border-slate-800 rounded-2xl">
       <div
-        className={`bg-white rounded-t-2xl border-b border-slate-200/80 ${styles.padding} min-h-[260px]`}
+        className={`bg-slate-950 rounded-t-2xl border-b border-slate-800 ${styles.padding} min-h-[260px]`}
       >
         <div>
           <p className={styles.sectionSubText}>What others say</p>
           <h2 className={`${styles.sectionHeadText} font-display`}>
-            Testimonials<span className="text-accent">.</span>
+            Testimonials<span className="text-indigo-400">.</span>
           </h2>
         </div>
       </div>

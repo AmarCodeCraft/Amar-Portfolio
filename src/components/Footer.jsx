@@ -28,7 +28,7 @@ const Footer = memo(() => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full py-8 bg-white border-t border-slate-200 text-slate-600" role="contentinfo">
+    <footer className="w-full py-8 glass text-white" role="contentinfo">
       <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-4">
         {/* Social Links */}
         <div className="flex gap-4">
@@ -38,7 +38,7 @@ const Footer = memo(() => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:bg-slate-100 transition-all duration-200"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-slate-400 hover:text-indigo-400 hover:bg-white/5 transition-all duration-200"
               aria-label={`Visit ${label} profile`}
             >
               <Icon size={18} />

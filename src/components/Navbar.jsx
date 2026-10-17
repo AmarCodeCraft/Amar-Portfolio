@@ -54,9 +54,9 @@ const Navbar = memo(() => {
             width={36}
             height={36}
           />
-          <p className="text-slate-900 text-[18px] font-bold cursor-pointer flex font-display">
+          <p className="text-white text-[18px] font-bold cursor-pointer flex font-display">
             Amar&nbsp;
-            <span className="sm:block hidden text-slate-500 font-normal">
+            <span className="sm:block hidden text-slate-400 font-normal">
               | CodeCraft
             </span>
           </p>
@@ -70,15 +70,15 @@ const Navbar = memo(() => {
                 href={`#${nav.id}`}
                 className={`relative text-[15px] font-medium cursor-pointer transition-colors duration-200 ${
                   active === nav.title
-                    ? "text-indigo-600 font-semibold"
-                    : "text-slate-600 hover:text-slate-900"
+                    ? "text-white font-semibold"
+                    : "text-slate-400 hover:text-white"
                 }`}
                 onClick={() => handleNavClick(nav.title)}
               >
                 {nav.title}
                 {/* Active indicator dot */}
                 {active === nav.title && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-indigo-600" />
+                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-indigo-500 shadow-[0_0_8px_#6366f1]" />
                 )}
               </a>
             </li>
@@ -88,7 +88,7 @@ const Navbar = memo(() => {
         {/* Resume / CTA button */}
         <a
           href="#contact"
-          className="hidden sm:block text-sm font-semibold px-5 py-2 rounded-full border border-indigo-200 text-indigo-600 hover:bg-indigo-50 transition-all duration-200 hover:border-indigo-400"
+          className="hidden sm:block text-sm font-semibold px-5 py-2 rounded-full border border-indigo-500/40 text-indigo-300 hover:text-white hover:bg-indigo-600/20 hover:border-indigo-400 transition-all duration-200"
         >
           Let's Talk
         </a>
